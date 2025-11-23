@@ -1,0 +1,18 @@
+{
+  "name": "mongodb2",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "mongoose": "^9.0.0",
+    "nodemailer": "^7.0.10"
+  }
+}

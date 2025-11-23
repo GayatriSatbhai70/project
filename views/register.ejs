@@ -1,0 +1,14 @@
+<%- include('menu.ejs') %>
+
+<div class="container">
+  <h1 style="color: cadetblue"><i>Registers Page</i></h1>
+  <form action="/registerAction" method="post">
+    <input name="name" type="text" placeholder="Name" />
+    <br /><br />
+    <input name="email" type="text" placeholder="Email" />
+    <br /><br />
+    <input name="password" type="text" placeholder="Password" />
+    <br /><br />
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</div>
