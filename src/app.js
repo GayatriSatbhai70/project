@@ -1,3 +1,8 @@
+var payUMoney = require("payumoney_nodejs");
+payUMoney.setProdKeys("6PqKSK15", "sAOVPuJG2X");
+
+payUMoney.isProdMode(true);
+
 const mongoose = require("mongoose");
 mongoose
   .connect("mongodb://127.0.0.1:27017/Cdac2025")
@@ -43,5 +48,26 @@ app.post("/registerAction", async (req, res) => {
   } catch (err) {
     res.send("error" + err);
   }
+});
+app.post("/payment", (req, res) => {
+  req.body.txnid = Math.round(Math.random() * 1000000);
+  req.body.surl = "http://localhost:3000/success";
+  req.body.furl = "http://localhost:3000/failure";
+
+  payUMoney.pay(req.body, function (error, response) {
+    if (error) {
+      // Some error console.log(response);
+    } else {
+      res.redirect(response);
+    }
+  });
+});
+
+app.post("/success", (req, res) => {
+  res.send("Payment Successfully");
+});
+
+app.post("/failure", (req, res) => {
+  res.send("Payment Failure");
 });
 app.listen(3000);
